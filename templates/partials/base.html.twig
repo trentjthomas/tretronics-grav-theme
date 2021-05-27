@@ -1,0 +1,128 @@
+{% set theme_config = attribute(config.themes, config.system.pages.theme) %}
+<!DOCTYPE html>
+
+<html lang="{{ (grav.language.getActive ?: grav.config.site.default_lang)|e }}">
+<head>
+{% block head %}
+    <meta charset="utf-8" />
+    <title>{% if header.title %}{{ header.title|e }} | {% endif %}{{ site.title|e }}</title>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% include 'partials/metadata.html.twig' %}
+
+    <link rel="canonical" href="{{ page.url(true, true)|e }}" />
+{% endblock head %}
+
+{% block stylesheets %}
+    {% do assets.addCss('https://unpkg.com/purecss@1.0.0/build/pure-min.css', 100) %}
+    {% do assets.addCss('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css', 99) %}
+    {% do assets.addCss('theme://css/custom.css', 98) %}
+{% endblock %}
+
+{% block javascripts %}
+    {% do assets.addJs('jquery', 100) %}
+    {% do assets.addJs('theme://js/bioPanel.js', 100) %}
+    {% do assets.addJs('theme://js/follower.js', 100) %}
+{% endblock %}
+
+{% block assets deferred %}
+    {{ assets.css()|raw }}
+    {{ assets.js()|raw }}
+{% endblock %}
+</head>
+<body id="top" class="{{ page.header.body_classes|e }}">
+
+{% block header %}
+  <div id="header">
+    <a id="header-logo" href="{{ home_url|e }}">
+      {{ config.site.title|e }}
+    </a>
+    {% block header_navigation %}
+      <nav id="main-nav">
+        {% include 'partials/navigation.html.twig' %}
+      </nav>
+    {% endblock %}
+  </div>
+
+  <!-- The topbar is to keep the page from jumping when elements are moved to fixed -->
+  <div id="topbar"></div>
+{% endblock %}
+
+{% block body %}
+  <section id="body">
+    <div id="main">
+
+      <!-- This is where the main content gets displayed -->
+      <div id="main-content">
+        <div class="padding">
+        {% block content %}{% endblock %}
+        </div>
+      </div>
+
+      <!-- This is the sidebar that is shown when the user has a wide page -->
+      <div id="sidebar">
+          <div id="sidebar-content">
+            <img  id="bio-pic" src="https://trentronics.com/user/themes/trentronics-theme/images/bioPic.jpg" alt="Trent">
+            <div class="padding">
+              <div><h3>{{ (theme_var('info_title')) }}</h3>
+                <h5>{{ (theme_var('info_subtitle')) }}</h5>
+                <p>{{ (theme_var('info_body')) }}</p>
+              </div>
+                <div>
+                <p>{{ (theme_var('info_links_title')) }}</p>
+                <ul>
+                  <li><a href={{ (theme_var('info_link1-url')) }}>{{ (theme_var('info_link1-text')) }}</a></li>
+                  <li><a href={{ (theme_var('info_link2-url')) }}>{{ (theme_var('info_link2-text')) }}</a></li>
+                  <li><a href={{ (theme_var('info_link3-url')) }}>{{ (theme_var('info_link3-text')) }}</a></li>
+                  <li><a href={{ (theme_var('info_link4-url')) }}>{{ (theme_var('info_link4-text')) }}</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+    </div>
+  </section>
+{% endblock %}
+
+{% block footer %}
+  <section class="footer">
+    <div id="footer">
+
+      <!-- This is the bottombar displayed when the user has a narrow page -->
+      <div id="bottombar">
+        <img  id="bb-bioPic" src="https://trentronics.com/user/themes/trentronics-theme/images/bioPic.jpg" alt="Trent">
+        <div id="bottombar-content">
+          <div><h3>{{ (theme_var('info_title')) }}</h3>
+            <h5>{{ (theme_var('info_subtitle')) }}</h5>
+            <p>{{ (theme_var('info_body')) }}</p>
+          </div>
+          <div>
+            <p>{{ (theme_var('info_links_title')) }}</p>
+            <ul class="hlist">
+              <li><a href={{ (theme_var('info_link1-url')) }}>{{ (theme_var('info_link1-text')) }}</a></li>
+              <li><a href={{ (theme_var('info_link2-url')) }}>{{ (theme_var('info_link2-text')) }}</a></li>
+              <li><a href={{ (theme_var('info_link3-url')) }}>{{ (theme_var('info_link3-text')) }}</a></li>
+              <li><a href={{ (theme_var('info_link4-url')) }}>{{ (theme_var('info_link4-text')) }}</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div id="footer-text">
+        <p>Trentronics powered proudly by <a href="http://getgrav.org">Grav</a>!</p><br>
+        <p>Copyright 2021 Trenton J. Thomas</p><br>
+        <p>Background Image by <a href="https://unsplash.com/@whatyouhide">Andrea Leopardi</a> from Unsplash</p>
+      </div>
+
+    </div>
+  </section>
+{% endblock %}
+
+{% block bottom %}
+    {{ assets.js('bottom')|raw }}
+{% endblock %}
+
+</body>
+</html>

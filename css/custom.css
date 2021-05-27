@@ -1,0 +1,268 @@
+/* Core Stuff */
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #606d6e;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: #3E2A35;
+  margin: 0px 0px 0px 0px;
+  padding: 0px 0px 0px 0px;
+}
+
+p {
+  color: #1C2321;
+  display: inline;
+}
+
+a {
+  color: #fff;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #B8B8B8;
+}
+
+ul {
+  display: table-cell;
+}
+
+li {
+  color: #1C2321;
+}
+
+table, th, td {
+ color: #1C2321;
+}
+
+pre {
+  background: #F0F0F0;
+  margin: 1rem 0;
+  border-radius: 2px;
+}
+
+blockquote {
+  border-left: 10px solid #eee;
+  margin: 0;
+  padding: 0 2rem;
+}
+
+html {
+  background: url("https://trentronics.com/user/themes/trentronics-theme/images/patagonia.jpg") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+/* HEADER CSS PORTION */
+
+#header {
+  position: relative;
+  width: 100%;
+  height: clamp(3.75rem, 1.7168674699rem + 9.03614458vw, 7.5rem);
+  z-index: 100;
+  /* animation css */
+  -webkit-transition: all ease-out .5s;
+  -moz-transition: all ease-out .5s;
+  -o-transition: all ease-out .5s;
+  transition: all ease-out .5s;
+}
+#header.follow {
+  position: fixed;
+  height: clamp(1.875rem, 0.8584337349rem + 4.51807229vw, 3.75rem);
+  background-color: #eee;
+}
+
+#header-logo {
+  float: left;
+  padding: 5px 0 0 25px;
+  color: #FFFFFF;
+  text-transform: uppercase;
+  font-size: clamp(1.25rem, 0.1656626506rem + 4.81927711vw, 3.25rem);
+  /*font-size: calc(((75vw - 4.5rem) / 7) * .7 );*/
+  /* animation css */
+  -webkit-transition: all ease-out .5s;
+  -moz-transition: all ease-out .5s;
+  -o-transition: all ease-out .5s;
+  transition: all ease-out .5s;
+}
+#header-logo.follow {
+  color: #F0A1A1;
+  padding-top: 0;
+}
+
+/* This is added to keep the page from jumping when scroll is achieved */
+#topbar {
+  /* animation css */
+  -webkit-transition: all ease-out .5s;
+  -moz-transition: all ease-out .5s;
+  -o-transition: all ease-out .5s;
+  transition: all ease-out .5s;
+}
+#topbar.scroll {
+  height: clamp(3.75rem, 1.7168674699rem + 9.03614458vw, 7.5rem);
+}
+
+#main-nav {
+  float: right;
+  padding-top: 5px;
+  padding-right: 15px;
+  font-size: clamp(0.5rem, -0.0421686747rem + 2.40963855vw, 1.5rem);
+  /* animation css */
+  -webkit-transition: all ease-out .5s;
+  -moz-transition: all ease-out .5s;
+  -o-transition: all ease-out .5s;
+  transition: all ease-out .5s;
+}
+#main-nav.follow {
+  padding-top: 0;
+  color: #F0A1A1;
+}
+
+/* Main-Nav Design CSS */
+#main-nav ul {
+  display: inline-block;
+}
+
+#main-nav ul li {
+  display: inline-block;
+  letter-spacing: normal;
+  padding: 0 5px;
+}
+
+/* Main-Nav Link Coloring*/
+#main-nav a {
+  color: #FFFFFF;
+}
+#main-nav a:hover {
+  color: #B8B8B8;
+}
+#main-nav.follow a {
+  color: #F0A1A1;
+}
+#main-nav.follow a:hover {
+  color: #E87373;
+}
+
+/* BODY CSS PORTION */
+
+#main {
+  position: relative;
+  width: 100%;
+}
+
+#main-content {
+  float: left;
+  width: 70%;
+}
+#main-content.full {
+  width: 100%;
+}
+
+#main-content .padding {
+  margin: 0 15px 0 15px;
+}
+
+
+#bio-pic {
+  width: 100%;
+}
+
+#sidebar {
+  float: left;
+  width: 30%;
+  max-width: 300px;
+}
+#sidebar.follow {
+  position: fixed;
+  top: 100px;
+  left: 70%;
+  margin: 0;
+  /* animation css */
+  -webkit-transition: all ease-out .5s;
+  -moz-transition: all ease-out .5s;
+  -o-transition: all ease-out .5s;
+  transition: all ease-out .5s;
+}
+
+#sidebar-content {
+  background-color: #eee;
+  width: calc(100% - 20px);
+  left: calc(70% + 10px);
+}
+
+#sidebar-content .padding {
+  margin: 5px 5px 5px 5px;
+}
+
+#sidebar-content a {
+  color: #538EAC;
+}
+#sidebar-content a:hover {
+  color: #2E5060;
+}
+
+/* BOTTOMBAR CSS */
+
+#footer {
+  position: static;
+  clear: both;
+  padding: 75px 0 75px 0;
+}
+
+#footer-text {
+  text-align: center;
+  width: 70%;
+}
+#footer-text.full {
+  width: 100%;
+}
+
+#bb-bioPic {
+  width: 250px;
+  height: 250px;
+}
+
+#bottombar {
+  display: flex;
+  background-color: #eee;
+  margin-left: 10%;
+  width: 80%;
+  min-width: 550px;
+}
+
+#bottombar-content {
+  margin: 5px 5px 5px 25px;
+}
+
+#bottombar-content a {
+  color: #538EAC;
+}
+#bottombar-content a:hover {
+  color: #2E5060;
+}
+
+.hlist {
+  display: flex;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+.hlist li {
+  list-style-type: none;
+  margin: 0 10px 10px 0;
+}

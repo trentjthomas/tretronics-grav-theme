@@ -1,0 +1,72 @@
+{% extends 'partials/base.html.twig' %}
+{% set blog_image = page.media.images[page.header.hero_image] ?: page.media.images|first %}
+{% set collection = page.collection() %}
+{% set blog = page.find(header_var('blog_url')|defined(theme_var('blog-page'))) %}
+{% set show_breadcrumbs = header_var('show_breadcrumbs', [page, blog])|defined(true) %}
+
+{# If using the breadcrumbs addon then set it to show #}
+{% if page.header.show_breadcrumbs is defined %}
+    {% set show_breadcrumbs = page.header.show_breadcrumbs %}
+{% else %}
+    {% set show_breadcrumbs = true %}
+{% endif %}
+
+{% block stylesheets %}
+    {{ parent() }}
+{% endblock %}
+
+{% block javascripts %}
+  {{ parent() }}
+{% endblock %}
+
+{% block body %}
+  <section id="body-wrapper" class="section blog-listing">
+    <section class="container {{ grid_size }}">
+
+      <div id="main">
+
+        <div id="main-content">
+          <div class="padding">
+            {% embed 'partials/layout.html.twig' with {blog: page} %}
+            {% block item %}
+
+              {# This is the main content area that displays the blog posts #}
+              <div>
+                {% for child in collection %}
+                    {% include 'partials/blog-list-item.html.twig' with {blog: page, page: child} %}
+                {% endfor %}
+              </div>
+            {% endblock %}
+
+            {% endembed %}
+          </div>
+        </div>
+
+        <!-- This is the sidebar that is shown when the user has a wide page -->
+        <div id="sidebar">
+            <div id="sidebar-content">
+              <img  id="bio-pic" src="https://trentronics.com/user/themes/trentronics-theme/images/bioPic.jpg" alt="Trent">
+              <div class="padding">
+                <div><h3>{{ (theme_var('info_title')) }}</h3>
+                  <h5>{{ (theme_var('info_subtitle')) }}</h5>
+                  <p>{{ (theme_var('info_body')) }}</p>
+                </div>
+                  <div>
+                  <p>{{ (theme_var('info_links_title')) }}</p>
+                  <ul>
+                    <li><a href={{ (theme_var('info_link1-url')) }}>{{ (theme_var('info_link1-text')) }}</a></li>
+                    <li><a href={{ (theme_var('info_link2-url')) }}>{{ (theme_var('info_link2-text')) }}</a></li>
+                    <li><a href={{ (theme_var('info_link3-url')) }}>{{ (theme_var('info_link3-text')) }}</a></li>
+                    <li><a href={{ (theme_var('info_link4-url')) }}>{{ (theme_var('info_link4-text')) }}</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+    </section>
+  </section>
+
+{% endblock %}

@@ -1,0 +1,3 @@
+enabled: true
+blog-page: '/blog'
+grid-size: grid-lg

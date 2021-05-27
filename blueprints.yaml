@@ -1,0 +1,116 @@
+name: Trentronics Grav Theme
+slug: trentronics-grav-theme
+type: theme
+version: 0.1.0
+description: Base Theme for Trentronics
+icon: rebel
+author:
+  name: Trent J Thomas
+  email: trent@trentronics.com
+  url: https://trentronics.com/
+homepage: https://github.com/trentjthomas/grav-theme-trentronics-theme/
+keywords: grav, theme, personal, professional, blog
+bugs: https://github.com/trentjthomas/grav-theme-trentronics-theme/issues
+readme: https://github.com/trentjthomas/grav-theme-trentronics-theme/blob/develop/README.md
+license: MIT
+
+dependencies:
+  - { name: grav, version: '>=1.6.0' }
+  - admin
+  - auto-date
+  - image-captions
+  - shortcode-core
+  - shortcode-ui
+
+form:
+  validation: loose
+  fields:
+    tabs:
+      type: tabs
+      active: 1
+      fields:
+        general_info:
+          type: tab
+          title: 'Infobox Info'
+          fields:
+              info_title:
+                type: text
+                size: long
+                label: 'Infobox Title'
+                default: 'Joseph Smith'
+                help: 'The name of the person being featured in the infobox.'
+              info_subtitle:
+                type: text
+                size: long
+                label: 'Infobox Subtitle'
+                default: 'About Me'
+                help: 'The text to be displayed under the title in the infobox.'
+              info_body:
+                type: text
+                size: long
+                label: 'Infobox Body'
+                default: 'I do many different things and sometimes stuff that I enjoy.'
+                help: 'The main body text to display in the infobox.'
+              info_links:
+                type: section
+                title: 'Links for Infobox'
+                underline: true
+                fields:
+                  info_links_title:
+                    type: text
+                    size: long
+                    label: 'Infobox Links Title'
+                    default: 'Find me at:'
+                    help: 'The text to put above or next to the links.'
+                  info_link1-text:
+                    type: text
+                    size: long
+                    label: 'Infobox Link 1 Text'
+                    default: 'LinkedIn'
+                    help: 'The text for the first link.'
+                  info_link1-url:
+                    type: text
+                    size: long
+                    label: 'Infobox Link 1 URL'
+                    default: 'https://linkedin.com/in/'
+                    help: 'The URL for your first link.'
+                  info_link2-text:
+                    type: text
+                    size: long
+                    label: 'Infobox Link 2 Text'
+                    default: 'GitHub'
+                    help: 'The text for the second link.'
+                  info_link2-url:
+                    type: text
+                    size: long
+                    label: 'Infobox Link 2 URL'
+                    default: 'https://github.com/'
+                    help: 'The URL for your second link.'
+                  info_link3-text:
+                    type: text
+                    size: long
+                    label: 'Infobox Link 3 Text'
+                    default: 'DynamiteJobs'
+                    help: 'The text for the third link.'
+                  info_link3-url:
+                    type: text
+                    size: long
+                    label: 'Infobox Link 3 URL'
+                    default: 'https://dynamitejobs.com/'
+                    help: 'The URL for your third link.'
+                  info_link4-text:
+                    type: text
+                    size: long
+                    label: 'Infobox Link 4 Text'
+                    default: 'E-Mail'
+                    help: 'The text for the fourth link.'
+                  info_link4-url:
+                    type: text
+                    size: long
+                    label: 'Infobox Link 4 URL'
+                    default: 'https://aemail.com/'
+                    help: 'The URL for your fourth link.'
+        theme_info:
+          type: tab
+          title: 'Color Info'
+          fields:
